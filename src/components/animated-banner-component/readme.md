@@ -1,4 +1,4 @@
-# my-component
+# animated-banner-component
 
 
 

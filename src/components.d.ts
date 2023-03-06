@@ -6,56 +6,46 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AnimatedBannerComponent {
+        "background": string;
+        "color": string;
+        "fontSize": number;
+        "height": number;
+        "loop": boolean;
+        "text": string;
+        "width": number;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAnimatedBannerComponentElement extends Components.AnimatedBannerComponent, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAnimatedBannerComponentElement: {
+        prototype: HTMLAnimatedBannerComponentElement;
+        new (): HTMLAnimatedBannerComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "animated-banner-component": HTMLAnimatedBannerComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AnimatedBannerComponent {
+        "background"?: string;
+        "color"?: string;
+        "fontSize"?: number;
+        "height"?: number;
+        "loop"?: boolean;
+        "text"?: string;
+        "width"?: number;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "animated-banner-component": AnimatedBannerComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "animated-banner-component": LocalJSX.AnimatedBannerComponent & JSXBase.HTMLAttributes<HTMLAnimatedBannerComponentElement>;
         }
     }
 }

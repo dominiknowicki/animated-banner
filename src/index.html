@@ -9,6 +9,26 @@
     <script nomodule src="/build/animated-banner.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <div style="background: beige; display: block; max-width: 25%;">
+      <p>THIS IS ANIMATED BANNER HOST (and it limits the width)</p>
+      <animated-banner-component
+        text="Hello Animated Banner!"
+        font-size="30"
+        height="200"
+        color="green"
+        background="transparent"
+      ></animated-banner-component>
+    </div>
+    <div style="background: ivory; display: block; max-width: 25%;">
+      <p>THIS IS ANIMATED BANNER HOST (and it limits the width)</p>
+      <animated-banner-component
+        text="Second Banner!"
+        font-size="20"
+        height="200"
+        color="darkcyan"
+        background="transparent"
+        loop="true"
+      ></animated-banner-component>
+    </div>
   </body>
 </html>

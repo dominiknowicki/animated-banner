@@ -7,11 +7,16 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `animation`  | `animation`  |             | `string`  | `undefined` |
+| `background` | `background` |             | `string`  | `undefined` |
+| `color`      | `color`      |             | `string`  | `undefined` |
+| `fontSize`   | `font-size`  |             | `number`  | `undefined` |
+| `height`     | `height`     |             | `number`  | `undefined` |
+| `loop`       | `loop`       |             | `boolean` | `undefined` |
+| `text`       | `text`       |             | `string`  | `undefined` |
+| `width`      | `width`      |             | `number`  | `undefined` |
 
 
 ----------------------------------------------

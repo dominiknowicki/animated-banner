@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AnimatedBannerComponent {
+        "animation": string;
         "background": string;
         "color": string;
         "fontSize": number;
@@ -29,6 +30,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AnimatedBannerComponent {
+        "animation"?: string;
         "background"?: string;
         "color"?: string;
         "fontSize"?: number;

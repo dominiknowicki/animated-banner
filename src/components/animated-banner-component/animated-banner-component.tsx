@@ -1,5 +1,4 @@
 import {Component, Prop, h, Element} from '@stencil/core'
-import {Animator} from "../../utils/Animator"
 
 @Component({
   tag: 'animated-banner-component',
@@ -16,11 +15,12 @@ export class AnimatedBannerComponent {
   @Prop() color: string;
   @Prop() background: string;
   @Prop() loop: boolean;
+  @Prop() animation: string;
 
   private canvas: HTMLCanvasElement
 
   render(): string {
-    return <canvas id="canvas" ref={(el) => this.canvas = el} ></canvas>;
+    return <canvas id="canvas" ref={(el) => this.canvas = el}></canvas>;
   }
 
   componentDidLoad(): void {
@@ -32,7 +32,12 @@ export class AnimatedBannerComponent {
       fontSize: this.fontSize,
       loop: this.loop
     }
-    const animator = new Animator(this.canvas, params)
-    animator.animate()
+
+    console.log('AnimatedBannerComponent - attempt to start animation:', this.animation)
+    window.dispatchEvent(new CustomEvent(this.animation, {
+      detail: {
+        canvas: this.canvas, params
+      }
+    }))
   }
 }

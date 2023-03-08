@@ -1,15 +1,18 @@
-export interface AnimatorInterface {
-  animate: Function
+import {AnimatorParams} from "../../models/AnimatorParams";
+import {AnimatorInterface} from "../../models/AnimatorInterface";
+
+window.addEventListener("slide-right", (event: CustomEvent) => {
+  abSlideRight(event.detail.canvas, event.detail.params)
+  console.log('Animation started: slide-right')
+})
+console.log('Animation registered: slide-right')
+
+export function abSlideRight(canvas: HTMLCanvasElement, params: AnimatorParams) {
+  const animator = new ABSlideRight(canvas, params)
+  animator.animate()
 }
 
-export interface AnimatorParams {
-  text: string
-  color: string
-  fontSize: number
-  loop: boolean
-}
-
-export class Animator implements AnimatorInterface {
+class ABSlideRight implements AnimatorInterface {
   private canvas: HTMLCanvasElement
   private ctx: CanvasRenderingContext2D
   private text
@@ -21,7 +24,7 @@ export class Animator implements AnimatorInterface {
   private canvasWidth: number = 0;
   private canvasHeight: number = 0;
 
-  constructor(canvas: HTMLCanvasElement, params:AnimatorParams) {
+  constructor(canvas: HTMLCanvasElement, params: AnimatorParams) {
     this.canvas = canvas
     this.ctx = this.canvas.getContext('2d')
     this.text = params.text

@@ -1,24 +1,23 @@
 import {AnimatorParams} from "../../models/AnimatorParams"
 import {AnimatorInterface} from "../../models/AnimatorInterface"
 
-window.addEventListener("slide-right", (event: CustomEvent) => {
-  abSlideRight(event.detail.canvas, event.detail.params)
-  console.log('Animation started: slide-right')
+window.addEventListener("slide-in-from-left", (event: CustomEvent) => {
+  abSlideInFromLeft(event.detail.canvas, event.detail.params)
+  console.log('Animation started: slide-in-from-left')
 })
-console.log('Animation registered: slide-right')
+console.log('Animation registered: slide-in-from-left')
 
-export function abSlideRight(canvas: HTMLCanvasElement, params: AnimatorParams) {
-  const animator = new ABSlideRight(canvas, params)
+export function abSlideInFromLeft(canvas: HTMLCanvasElement, params: AnimatorParams) {
+  const animator = new ABSlideInFromLeft(canvas, params)
   animator.animate()
 }
 
-class ABSlideRight implements AnimatorInterface {
+class ABSlideInFromLeft implements AnimatorInterface {
   private canvas: HTMLCanvasElement
   private ctx: CanvasRenderingContext2D
   private text
   private color
   private fontSize
-  private loop
   private textX = 0
   private textY = 0
   private canvasWidth: number = 0
@@ -30,10 +29,11 @@ class ABSlideRight implements AnimatorInterface {
     this.text = params.text
     this.color = params.color
     this.fontSize = params.fontSize
-    this.loop = params.loop
+    this.textX = -this.canvas.clientWidth
     this.textY = (this.canvas.height + this.fontSize) / 2
     this.canvasWidth = this.canvas.clientWidth
     this.canvasHeight = this.canvas.clientHeight
+    console.log('textX', this.textX)
   }
 
   public animate(): void {
@@ -48,11 +48,9 @@ class ABSlideRight implements AnimatorInterface {
   }
 
   private runAnimation(): void {
-    if (this.textX < this.canvasWidth) {
+    if (this.textX < 0) {
+      console.log('text', this.textX)
       requestAnimationFrame(this.nextFrame.bind(this))
-    } else if (this.loop) {
-      this.textX = 0
-      this.runAnimation()
     }
   }
 

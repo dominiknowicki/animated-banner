@@ -1,7 +1,7 @@
 import {AnimatorParams} from "../../models/AnimatorParams"
 import {AnimatorInterface} from "../../models/AnimatorInterface"
 
-window.addEventListener("slide-in-from-left", (event: CustomEvent) => {
+window.addEventListener('slide-in-from-left', (event: CustomEvent) => {
   abSlideInFromLeft(event.detail.canvas, event.detail.params)
   console.log('Animation started: slide-in-from-left')
 })
@@ -33,7 +33,6 @@ class ABSlideInFromLeft implements AnimatorInterface {
     this.textY = (this.canvas.height + this.fontSize) / 2
     this.canvasWidth = this.canvas.clientWidth
     this.canvasHeight = this.canvas.clientHeight
-    console.log('textX', this.textX)
   }
 
   public animate(): void {
@@ -42,14 +41,13 @@ class ABSlideInFromLeft implements AnimatorInterface {
   }
 
   private drawText(): void {
-    this.ctx.font = "" + this.fontSize + "px Arial"
+    this.ctx.font = `${this.fontSize}px Arial`
     this.ctx.fillStyle = this.color
     this.ctx.fillText(this.text, this.textX, this.textY)
   }
 
   private runAnimation(): void {
-    if (this.textX < 0) {
-      console.log('text', this.textX)
+    if (this.textX < 10) {
       requestAnimationFrame(this.nextFrame.bind(this))
     }
   }

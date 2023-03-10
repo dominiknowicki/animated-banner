@@ -1,7 +1,7 @@
 import {AnimatorParams} from "../../models/AnimatorParams"
 import {AnimatorInterface} from "../../models/AnimatorInterface"
 
-window.addEventListener("slide-right", (event: CustomEvent) => {
+window.addEventListener('slide-right', (event: CustomEvent) => {
   abSlideRight(event.detail.canvas, event.detail.params)
   console.log('Animation started: slide-right')
 })
@@ -42,7 +42,7 @@ class ABSlideRight implements AnimatorInterface {
   }
 
   private drawText(): void {
-    this.ctx.font = "" + this.fontSize + "px Arial"
+    this.ctx.font = `${this.fontSize}px Arial`
     this.ctx.fillStyle = this.color
     this.ctx.fillText(this.text, this.textX, this.textY)
   }

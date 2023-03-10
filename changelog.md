@@ -1,7 +1,9 @@
+### Verision 0.0.4
+- default values of properties added
 ### Verision 0.0.3
 - slide-in-from-left animation added
-### Verision 0.0.3
+### Verision 0.0.2
 - animation plugin system ver.1
 - slide-right animation added
-- ### Verision 0.0.1
+### Verision 0.0.1
 - given text is animated with HTML Canvas

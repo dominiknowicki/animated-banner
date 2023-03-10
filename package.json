@@ -1,6 +1,6 @@
 {
   "name": "animated-banner",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Webcomponent that Animates given text",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

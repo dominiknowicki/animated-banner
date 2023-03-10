@@ -8,36 +8,29 @@ import {Component, Prop, h, Element} from '@stencil/core'
 export class AnimatedBannerComponent {
 
   @Element() el: HTMLElement
-  @Prop() text: string
-  @Prop() fontSize: number
-  @Prop() width: number
-  @Prop() height: number
-  @Prop() color: string
-  @Prop() background: string
-  @Prop() loop: boolean
-  @Prop() animation: string
+  @Prop({ mutable: true }) text: string = 'Hello'
+  @Prop({ mutable: true }) fontSize: number = 20
+  @Prop({ mutable: true }) color: string = 'black'
+  @Prop({ mutable: true }) background: string = 'transparent'
+  @Prop({ mutable: true }) width: number = 400
+  @Prop({ mutable: true }) height: number = 200
+  @Prop({ mutable: true }) loop: boolean = false
+  @Prop({ mutable: true }) animation: string = 'slide-in-from-left'
 
   private canvas: HTMLCanvasElement
-  private default = {
-    background: 'transparent',
-    height: 200,
-    color: 'black',
-    text: 'Hello form Animated Banner!',
-    fontSize: 20,
-  }
 
   render(): string {
     return <canvas id="canvas" ref={(el) => this.canvas = el}></canvas>
   }
 
   componentDidLoad(): void {
-    this.canvas.style.background = this.background || this.default.background
-    this.canvas.style.height = `${this.height || this.default.height}px`
+    this.canvas.style.background = this.background
+    this.canvas.style.height = `${this.height}px`
     const params = {
-      text: this.text || this.default.text,
-      color: this.color || this.default.text,
-      fontSize: this.fontSize || this.default.text,
-      loop: this.loop || false
+      text: this.text,
+      color: this.color,
+      fontSize: this.fontSize,
+      loop: this.loop
     }
 
     console.log('AnimatedBannerComponent - attempt to start animation:', this.animation)
